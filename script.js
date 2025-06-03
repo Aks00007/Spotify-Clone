@@ -34,11 +34,14 @@ const playMusic = (track, showName = true) => {
 };
 
 async function main() {
+    // Getting the list of all songs
     songs = await getSongs();
 
+    // Remove auto-play for the first song on page load
     currentSong.pause();
     play.src = "/assets/play.svg";
 
+    // Displaying songs in playlist
     let songUL = document.querySelector(".songList ul");
     for (const song of songs) {
         songUL.innerHTML += `<li>
@@ -52,6 +55,7 @@ async function main() {
         </li>`;
     }
 
+    // Attaching event listeners to each song in the playlist
     document.querySelectorAll(".songList li").forEach((e) => {
         e.addEventListener("click", () => {
             let songName = e.querySelector(".info").firstElementChild.innerHTML.trim();
@@ -59,6 +63,7 @@ async function main() {
         });
     });
 
+    // Attaching event listeners to play, next, and previous
     play.addEventListener("click", () => {
         play.style.opacity = 0.5;
         setTimeout(() => {
@@ -83,6 +88,7 @@ async function main() {
         if (index < songs.length - 1) playMusic(songs[index + 1]);
     });
 
+    // Listening for time update event
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML =
             `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
@@ -90,12 +96,14 @@ async function main() {
             (currentSong.currentTime / currentSong.duration) * 100 + "%";
     });
 
+    // Adding event listener to the seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
         currentSong.currentTime = (currentSong.duration * percent) / 100;
     });
 
+    // Adding event listener to hamburger
     const hamburger = document.querySelector(".hamburger");
     const mainLeft = document.querySelector(".main-left");
     hamburger.addEventListener("click", () => {
@@ -108,6 +116,7 @@ async function main() {
         }, 150);
     });
 
+    // Adding event listener to each .card for song selection
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
         card.addEventListener("click", () => {
