@@ -401,7 +401,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 5px;
+    margin: 5px;
     height: 250px;
     width: 165px;
     border-radius: 10px;
