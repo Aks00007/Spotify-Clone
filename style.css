@@ -406,7 +406,6 @@ body {
     width: 165px;
     border-radius: 10px;
     position: relative;
-    cursor: pointer;
 }
 
 .card:hover {
@@ -416,6 +415,7 @@ body {
 .card:hover .play {
     opacity: 1;
     top: -12px;
+    cursor: pointer;
 }
 
 .card:hover .play:hover {
