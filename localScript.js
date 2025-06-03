@@ -16,8 +16,18 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function getSongs() {
-    const response = await fetch("/songs/songs.json");
-    const songs = await response.json(); // Parse JSON array
+    let a = await fetch("http://127.0.0.1:3000/songs/");
+    let response = await a.text();
+    let div = document.createElement("div");
+    div.innerHTML = response;
+    let as = div.getElementsByTagName("a");
+    let songs = [];
+    for (let i = 0; i < as.length; i++) {
+        const element = as[i];
+        if (element.href.endsWith(".mp3")) {
+            songs.push(decodeURIComponent(element.href.split("/songs/")[1]));
+        }
+    }
     return songs;
 }
 
@@ -34,11 +44,14 @@ const playMusic = (track, showName = true) => {
 };
 
 async function main() {
+    // Getting the list of all songs
     songs = await getSongs();
 
+    // Remove auto-play for the first song on page load
     currentSong.pause();
     play.src = "/assets/play.svg";
 
+    // Displaying songs in playlist
     let songUL = document.querySelector(".songList ul");
     for (const song of songs) {
         songUL.innerHTML += `<li>
@@ -52,6 +65,7 @@ async function main() {
         </li>`;
     }
 
+    // Attaching event listeners to each song in the playlist
     document.querySelectorAll(".songList li").forEach((e) => {
         e.addEventListener("click", () => {
             let songName = e.querySelector(".info").firstElementChild.innerHTML.trim();
@@ -59,6 +73,7 @@ async function main() {
         });
     });
 
+    // Attaching event listeners to play, next, and previous
     play.addEventListener("click", () => {
         play.style.opacity = 0.5;
         setTimeout(() => {
@@ -74,40 +89,43 @@ async function main() {
     });
 
     previous.addEventListener("click", () => {
-        let index = songs.indexOf(decodeURIComponent(currentSong.src.split("/").pop()));
+        let index = songs.indexOf(decodeURIComponent(currentSong.src.split("/").slice(-1)[0]));
         if (index > 0) playMusic(songs[index - 1]);
     });
 
     next.addEventListener("click", () => {
-        let index = songs.indexOf(decodeURIComponent(currentSong.src.split("/").pop()));
+        let index = songs.indexOf(decodeURIComponent(currentSong.src.split("/").slice(-1)[0]));
         if (index < songs.length - 1) playMusic(songs[index + 1]);
     });
 
+    // Listening for time update event
     currentSong.addEventListener("timeupdate", () => {
-        document.querySelector(".songtime").innerHTML =
-            `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
-        document.querySelector(".circle").style.left =
-            (currentSong.currentTime / currentSong.duration) * 100 + "%";
+        document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     });
 
+    // Adding event listener to the seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
         currentSong.currentTime = (currentSong.duration * percent) / 100;
     });
 
+    // Adding event listener to hamburger
     const hamburger = document.querySelector(".hamburger");
     const mainLeft = document.querySelector(".main-left");
     hamburger.addEventListener("click", () => {
         const isOpen = mainLeft.style.left === "0px";
         mainLeft.style.left = isOpen ? "-100%" : "0";
         hamburger.style.opacity = 0;
+
         setTimeout(() => {
             hamburger.src = isOpen ? "/assets/hamburger.svg" : "/assets/cross.svg";
             hamburger.style.opacity = 1;
         }, 150);
     });
 
+    // Adding event listener to each .card for song selection
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
         card.addEventListener("click", () => {
