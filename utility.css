@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+    width: 8px;
+    /* Adjust width as needed */
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    /* Dark background for the track */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    /* Slightly lighter black for contrast */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Lighten on hover */
+}

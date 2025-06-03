@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <span class="nav-sec1">
+            <img class="logo" src="/assets/logo.svg" alt="logo">
+        </span>
+        <span class="hamburgerContainer">
+            <img class="hamburger" src="/assets/hamburger.svg" alt="hamburger">
+        </span>
+        <span class="nav-sec2">
+            <img src="/assets/home.svg" alt="home">
+        </span>
+        <span class="nav-sec3">
+            <span>
+                <img src="/assets/search.svg" alt="search">
+            </span>
+            <input type="text" placeholder="What do you want to play?">
+            <span style="font-size: 32px; color: rgba(123, 116, 116, 0.317); cursor: default;">|</span>
+            <span>
+                <img src="/assets/browse.svg" alt="browse">
+            </span>
+        </span>
+        <div class="nav-sec4">
+            <button class="btn-grey">Premium</button>
+            <button class="btn-grey">Support</button>
+            <button class="btn-grey">Download</button>
+            <span style="color: grey; font-size: 30px; cursor:default; margin-left: 25px;">|</span>
+            <button class="btn-ins">Install App</button>
+            <button class="btn-sign">Sign up</button>
+            <button class="btn-white">Log in</button>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="main-left">
+            <div class="main-left-header">
+                Your Library
+                <img src="assets/add.svg" alt="add" style="height: 15px; filter:invert();">
+            </div>
+
+
+
+            <div class="main-left-body">
+                <div class="songList">
+                    <ul></ul>
+                </div>
+
+                <div class="main-left-box">
+                    <h3>Create your first playlist</h3>
+                    <h5>It's easy, we'll help you</h5>
+                    <button class="btn-left-body"><b>Create playlist</b></button>
+                </div>
+                <div class="main-left-box">
+                    <h3>Let's find some podcasts to follow</h3>
+                    <h5>We'll keep you updated on new episodes</h5>
+                    <button class="btn-left-body" style="width: 150px; margin-left: 22px;"><b>Browse
+                            podcasts</b></button>
+                </div>
+            </div>
+            <div class="main-left-footer">
+                <div class="main-left-footer-elements">
+                    <span>Legal</span>
+                    <span>Safety & Privacy Center</span>
+                    <span>Privacy Policy</span>
+                    <span>Cookies</span>
+                    <span>About Ads</span>
+                    <span>Accessibility</span> <br>
+                    <span style="color: rgba(255, 255, 255, 0.947); font-size: 12px;">Cookies</span>
+                </div>
+                <button><img src="/assets/globe.svg" alt="globe"
+                        style="height: 18px; filter: invert();">&ensp;English</button>
+            </div>
+        </div>
+
+        <div class="main-right">
+            <div class="main-right-header">
+                <h2>Trending songs</h2>
+                <h5>Show all</h5>
+            </div>
+            <div class="main-right-body">
+                <div data-song="Pehli Nazar Mein - Atif Aslam.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p1.jpeg" alt="">
+                        <span>
+                            <h5>Pehli Nazar Mein</h5>
+                            <h6>Atif Aslam & Pritam</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Khuda Jaane - Bachna Ae Haseeno.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p2.jpeg" alt="">
+                        <span>
+                            <h5>Khuda Jaane</h5>
+                            <h6>Vishal & Shekhar, KK & Shilpa Rao</h6>
+                        </span>
+                    </div>
+                </div>
+                
+                <div data-song="Akhiyaan Gulaab - Mitraz.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p4.jpeg" alt="">
+                        <span>
+                            <h5>Ankhiyaan Gulaab</h5>
+                            <h6>Mitraz</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Payal - Yo Yo Honey Singh.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p5.jpeg" alt="">
+                        <span>
+                            <h5>Payal</h5>
+                            <h6>Yo Yo Honey Singh & Paradox</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Timeless - The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Timeless</h5>
+                            <h6>The Weeknd & Playboi Carti</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Cry For Me The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Cry For Me</h5>
+                            <h6>The Weeknd</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Pehli Nazar Mein - Atif Aslam.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p1.jpeg" alt="">
+                        <span>
+                            <h5>Pehli Nazar Mein</h5>
+                            <h6>Atif Aslam & Pritam</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Khuda Jaane - Bachna Ae Haseeno.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p2.jpeg" alt="">
+                        <span>
+                            <h5>Khuda Jaane</h5>
+                            <h6>Vishal & Shekhar, KK & Shilpa Rao</h6>
+                        </span>
+                    </div>
+                </div>
+                
+                <div data-song="Akhiyaan Gulaab - Mitraz.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p4.jpeg" alt="">
+                        <span>
+                            <h5>Ankhiyaan Gulaab</h5>
+                            <h6>Mitraz</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Payal - Yo Yo Honey Singh.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p5.jpeg" alt="">
+                        <span>
+                            <h5>Payal</h5>
+                            <h6>Yo Yo Honey Singh & Paradox</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Timeless - The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Timeless</h5>
+                            <h6>The Weeknd & Playboi Carti</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Cry For Me The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Cry For Me</h5>
+                            <h6>The Weeknd</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Pehli Nazar Mein - Atif Aslam.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p1.jpeg" alt="">
+                        <span>
+                            <h5>Pehli Nazar Mein</h5>
+                            <h6>Atif Aslam & Pritam</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Khuda Jaane - Bachna Ae Haseeno.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p2.jpeg" alt="">
+                        <span>
+                            <h5>Khuda Jaane</h5>
+                            <h6>Vishal & Shekhar, KK & Shilpa Rao</h6>
+                        </span>
+                    </div>
+                </div>
+                
+                <div data-song="Akhiyaan Gulaab - Mitraz.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p4.jpeg" alt="">
+                        <span>
+                            <h5>Ankhiyaan Gulaab</h5>
+                            <h6>Mitraz</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Payal - Yo Yo Honey Singh.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p5.jpeg" alt="">
+                        <span>
+                            <h5>Payal</h5>
+                            <h6>Yo Yo Honey Singh & Paradox</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Timeless - The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Timeless</h5>
+                            <h6>The Weeknd & Playboi Carti</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Cry For Me The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Cry For Me</h5>
+                            <h6>The Weeknd</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Pehli Nazar Mein - Atif Aslam.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p1.jpeg" alt="">
+                        <span>
+                            <h5>Pehli Nazar Mein</h5>
+                            <h6>Atif Aslam & Pritam</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Khuda Jaane - Bachna Ae Haseeno.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p2.jpeg" alt="">
+                        <span>
+                            <h5>Khuda Jaane</h5>
+                            <h6>Vishal & Shekhar, KK & Shilpa Rao</h6>
+                        </span>
+                    </div>
+                </div>
+                
+                <div data-song="Akhiyaan Gulaab - Mitraz.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p4.jpeg" alt="">
+                        <span>
+                            <h5>Ankhiyaan Gulaab</h5>
+                            <h6>Mitraz</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Payal - Yo Yo Honey Singh.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p5.jpeg" alt="">
+                        <span>
+                            <h5>Payal</h5>
+                            <h6>Yo Yo Honey Singh & Paradox</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Timeless - The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Timeless</h5>
+                            <h6>The Weeknd & Playboi Carti</h6>
+                        </span>
+                    </div>
+                </div>
+                <div data-song="Cry For Me The Weeknd.mp3" class="card">
+                    <div class="play">
+                        <img src="/assets/play-btn.svg" alt="play">
+                    </div>
+                    <div class="desc">
+                        <img src="/assets/p6.jpeg" alt="">
+                        <span>
+                            <h5>Cry For Me</h5>
+                            <h6>The Weeknd</h6>
+                        </span>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="main-right-footer">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                <div class="songinfo"></div>
+                <div class="songbuttons">
+                    <img id="previous" src="/assets/previous.svg" alt="prevsong">
+                    <img id="play" src="/assets/play.svg" alt="play">
+                    <img id="next" src="/assets/next.svg" alt="next">
+                </div>
+                <div class="songtime"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
